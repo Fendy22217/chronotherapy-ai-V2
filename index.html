@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#123b3a">
+  <meta name="description" content="ChronoTherapy AI — prototipe penelitian prediksi kronoterapi antihipertensi.">
+  <title>ChronoTherapy AI</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#beranda" aria-label="ChronoTherapy AI beranda">
+      <span class="brand-mark">CT</span>
+      <span><strong>ChronoTherapy</strong><small>AI · RESEARCH PROTOTYPE</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Buka navigasi">☰</button>
+    <nav id="nav">
+      <a href="#beranda" class="nav-link active">Beranda</a>
+      <a href="#analisis" class="nav-link">Analisis</a>
+      <a href="#panduan" class="nav-link">Panduan</a>
+      <a href="#tentang" class="nav-link">Tentang</a>
+    </nav>
+    <button class="install-btn" id="installBtn" hidden>＋ Pasang Aplikasi</button>
+  </header>
+
+  <main>
+    <section class="hero section" id="beranda">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> PRECISION CHRONOTHERAPY RESEARCH</div>
+        <h1>Memahami waktu,<br><em>mengoptimalkan terapi.</em></h1>
+        <p class="hero-lead">Prototipe sistem prediksi kronoterapi untuk mendukung penelitian penentuan waktu pemberian obat antihipertensi.</p>
+        <div class="hero-actions">
+          <a class="primary-btn" href="#analisis">Mulai analisis <span>→</span></a>
+          <a class="text-btn" href="#tentang">Tentang aplikasi</a>
+        </div>
+        <div class="hero-note"><span class="shield">✦</span> Dibangun untuk eksplorasi ilmiah dan pengembangan model kronoterapi.</div>
+      </div>
+      <div class="hero-art" aria-label="Ilustrasi ritme sirkadian dan tekanan darah">
+        <div class="orb orb-one"></div><div class="orb orb-two"></div>
+        <div class="clock-card">
+          <div class="clock-top"><span>DAILY RHYTHM</span><span class="live-dot"></span></div>
+          <div class="clock-face"><div class="clock-ring"></div><div class="clock-hand hand-hour"></div><div class="clock-hand hand-minute"></div><div class="clock-center"></div><span class="clock-label l6">06</span><span class="clock-label l12">12</span><span class="clock-label l18">18</span><span class="clock-label l24">24</span></div>
+          <div class="clock-bottom"><span><i class="dot morning"></i> Pagi</span><span><i class="dot evening"></i> Malam</span></div>
+        </div>
+        <div class="floating-tag tag-top"><span>☼</span> Ritme sirkadian</div>
+        <div class="floating-tag tag-bottom"><span>⌁</span> Profil tekanan darah</div>
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <div><strong>01</strong><span>Pengumpulan<br>parameter</span></div>
+      <div><strong>02</strong><span>Analisis<br>kronoterapi</span></div>
+      <div><strong>03</strong><span>Interpretasi<br>hasil</span></div>
+      <div><strong>04</strong><span>Pengembangan<br>model ML</span></div>
+    </section>
+
+    <section class="section analysis-section" id="analisis">
+      <div class="section-heading">
+        <div><div class="eyebrow">CHRONOTHERAPY ASSESSMENT</div><h2>Analisis pasien</h2><p>Lengkapi informasi berikut untuk menjalankan alur analisis prototipe.</p></div>
+        <div class="step-count"><span id="stepCurrent">01</span><span class="step-slash">/</span><span>04</span></div>
+      </div>
+      <div class="progress-track"><div id="progressBar"></div></div>
+      <div class="assessment-layout">
+        <aside class="step-rail">
+          <div class="rail-item active" data-rail="1"><span>01</span><div><b>Data pasien</b><small>Karakteristik dasar</small></div></div>
+          <div class="rail-item" data-rail="2"><span>02</span><div><b>Tekanan darah</b><small>Profil pengukuran</small></div></div>
+          <div class="rail-item" data-rail="3"><span>03</span><div><b>Terapi obat</b><small>Antihipertensi</small></div></div>
+          <div class="rail-item" data-rail="4"><span>04</span><div><b>Ritme harian</b><small>Kebiasaan dan tidur</small></div></div>
+        </aside>
+        <div class="form-card">
+          <form id="assessmentForm">
+            <div class="form-step active" data-step="1">
+              <div class="form-kicker">LANGKAH 01 · DATA PASIEN</div><h3>Informasi dasar pasien</h3><p class="form-desc">Masukkan karakteristik dasar sebagai parameter awal analisis.</p>
+              <div class="field-grid">
+                <label>Usia pasien <span class="field-unit">tahun</span><input type="number" id="age" min="18" max="110" placeholder="Contoh: 55" required></label>
+                <label>Jenis kelamin<select id="sex" required><option value="">Pilih jenis kelamin</option><option value="Laki-laki">Laki-laki</option><option value="Perempuan">Perempuan</option></select></label>
+                <label class="full">Berat badan <span class="field-unit">kg · opsional</span><input type="number" id="weight" min="20" max="300" placeholder="Contoh: 68"></label>
+              </div>
+            </div>
+            <div class="form-step" data-step="2">
+              <div class="form-kicker">LANGKAH 02 · TEKANAN DARAH</div><h3>Profil tekanan darah</h3><p class="form-desc">Gunakan hasil pengukuran yang tersedia. Pengukuran malam dapat diisi jika tersedia data ABPM.</p>
+              <div class="field-grid">
+                <label>Tekanan sistolik <span class="field-unit">mmHg</span><input type="number" id="sbp" min="70" max="260" placeholder="Contoh: 150" required></label>
+                <label>Tekanan diastolik <span class="field-unit">mmHg</span><input type="number" id="dbp" min="40" max="160" placeholder="Contoh: 90" required></label>
+                <label class="full">Tekanan darah saat tidur / malam <span class="field-unit">sistolik · mmHg</span><input type="number" id="nightSbp" min="70" max="260" placeholder="Kosongkan jika tidak tersedia"></label>
+                <div class="field-hint full">Jika tidak tersedia pengukuran malam atau ABPM, biarkan kolom tersebut kosong.</div>
+              </div>
+            </div>
+            <div class="form-step" data-step="3">
+              <div class="form-kicker">LANGKAH 03 · TERAPI OBAT</div><h3>Obat antihipertensi</h3><p class="form-desc">Pilih obat utama yang sedang digunakan pasien.</p>
+              <div class="field-grid">
+                <label class="full">Golongan obat<select id="drugClass" required><option value="">Pilih golongan obat</option><option>ACE inhibitor</option><option>ARB</option><option>Calcium channel blocker</option><option>Beta blocker</option><option>Diuretik</option><option>Kombinasi</option><option>Lainnya / belum diketahui</option></select></label>
+                <label class="full">Nama obat <span class="field-unit">opsional</span><input type="text" id="drugName" placeholder="Contoh: amlodipine"></label>
+                <label class="full">Frekuensi penggunaan<select id="frequency"><option value="Sekali sehari">Sekali sehari</option><option value="Dua kali sehari">Dua kali sehari</option><option value="Lebih dari dua kali sehari">Lebih dari dua kali sehari</option><option value="Belum diketahui">Belum diketahui</option></select></label>
+              </div>
+            </div>
+            <div class="form-step" data-step="4">
+              <div class="form-kicker">LANGKAH 04 · RITME HARIAN</div><h3>Kebiasaan tidur dan aktivitas</h3><p class="form-desc">Informasi ini membantu menggambarkan pola aktivitas harian pasien.</p>
+              <div class="field-grid">
+                <label>Waktu biasa tidur<select id="sleepTime"><option value="Sebelum 21.00">Sebelum 21.00</option><option value="21.00–23.00" selected>21.00–23.00</option><option value="Setelah 23.00">Setelah 23.00</option><option value="Tidak teratur">Tidak teratur</option></select></label>
+                <label>Waktu biasa bangun<select id="wakeTime"><option value="Sebelum 05.00">Sebelum 05.00</option><option value="05.00–07.00" selected>05.00–07.00</option><option value="Setelah 07.00">Setelah 07.00</option><option value="Tidak teratur">Tidak teratur</option></select></label>
+                <label class="full">Pola tekanan darah malam<select id="nightPattern"><option value="Tidak diketahui">Tidak diketahui</option><option value="Menurun saat tidur">Menurun saat tidur</option><option value="Tidak menurun saat tidur">Tidak menurun saat tidur</option><option value="Meningkat saat tidur">Meningkat saat tidur</option></select></label>
+                <label class="check-field full"><input type="checkbox" id="dizziness"> Pasien memiliki riwayat pusing saat berdiri atau risiko jatuh</label>
+              </div>
+            </div>
+            <div class="form-error" id="formError" role="alert"></div>
+            <div class="form-actions"><button type="button" class="back-btn" id="backBtn" disabled>← Kembali</button><button type="button" class="primary-btn" id="nextBtn">Lanjutkan <span>→</span></button><button type="submit" class="primary-btn" id="analyzeBtn" hidden>Analisis data <span>→</span></button></div>
+          </form>
+        </div>
+      </div>
+      <div class="result-card" id="resultCard" hidden>
+        <div class="result-top"><div><div class="eyebrow">CHRONOTHERAPY REPORT</div><h2>Ringkasan analisis</h2><p>Hasil pemrosesan prototipe berdasarkan parameter yang dimasukkan.</p></div><span class="result-chip">PROTOTIPE PENELITIAN</span></div>
+        <div class="result-grid">
+          <div class="result-main"><span class="result-label">ARAH ANALISIS AWAL</span><div class="result-direction" id="resultDirection">Pagi</div><p id="resultSummary"></p><div class="result-caution" id="resultCaution"></div></div>
+          <div class="result-metrics"><div><span>Tekanan sistolik</span><strong id="outSbp">—</strong><small>mmHg</small></div><div><span>Tekanan diastolik</span><strong id="outDbp">—</strong><small>mmHg</small></div><div><span>Obat utama</span><strong class="drug-output" id="outDrug">—</strong></div></div>
+        </div>
+        <div class="chart-panel"><div class="chart-heading"><div><b>Ilustrasi profil tekanan darah 24 jam</b><small>Kurva konseptual, bukan hasil pengukuran pasien</small></div><span>24 JAM</span></div><canvas id="bpChart" height="190"></canvas><div class="chart-legend"><span><i class="legend-dot blue"></i> Profil siang</span><span><i class="legend-dot violet"></i> Profil malam</span></div></div>
+        <div class="result-foot"><p>Hasil ini merupakan keluaran prototipe untuk pengembangan penelitian, bukan rekomendasi klinis tervalidasi. Jangan mengubah waktu atau dosis obat berdasarkan hasil ini. Keputusan terapi tetap oleh dokter/tenaga kesehatan yang berwenang.</p><div><button class="secondary-btn" id="copyBtn">Salin ringkasan</button><button class="primary-btn" id="resetBtn">Analisis baru ↗</button></div></div>
+      </div>
+    </section>
+
+    <section class="section guide-section" id="panduan">
+      <div class="section-heading"><div><div class="eyebrow">RESEARCH NOTES</div><h2>Catatan penggunaan</h2><p>Informasi ringkas untuk menjaga interpretasi hasil tetap tepat.</p></div></div>
+      <div class="guide-grid">
+        <article class="guide-card"><span class="guide-icon">◷</span><h3>Waktu pemberian obat</h3><p>Waktu pemberian antihipertensi perlu mempertimbangkan karakteristik obat, profil tekanan darah, pola tidur, tolerabilitas, dan kepatuhan pasien.</p></article>
+        <article class="guide-card"><span class="guide-icon">⌁</span><h3>Data ABPM</h3><p>Pengukuran tekanan darah ambulatori 24 jam dapat membantu mengidentifikasi pola tekanan darah siang dan malam.</p></article>
+        <article class="guide-card"><span class="guide-icon">✧</span><h3>Keselamatan pasien</h3><p>Jangan mengubah jadwal atau dosis obat secara mandiri. Evaluasi risiko hipotensi, pusing, dan jatuh tetap diperlukan.</p></article>
+      </div>
+      <div class="emergency-note"><strong>Perhatian medis</strong><p>Tekanan darah ≥180/120 mmHg, terutama bila disertai nyeri dada, sesak napas, kelemahan mendadak, gangguan penglihatan, atau gejala stroke, memerlukan penilaian medis segera.</p></div>
+    </section>
+
+    <section class="about-section" id="tentang">
+      <div class="about-inner">
+        <div class="about-mark">CT<span>AI</span></div>
+        <div class="about-copy"><div class="eyebrow light">ABOUT THE RESEARCH</div><h2>ChronoTherapy AI</h2><p class="about-subtitle">Prototipe aplikasi penelitian</p>
+          <div class="thesis-label">JUDUL DISERTASI</div>
+          <p class="thesis-title">Pengembangan Model Prediksi Kronoterapi Berbasis Machine Learning untuk Penentuan Waktu Pemberian Obat Antihipertensi</p>
+          <div class="author-line"><span>DIKEMBANGKAN OLEH</span><strong>apt. Fendy Prasetyawan, S.Farm., M.Farm.</strong></div>
+        </div>
+      </div>
+      <div class="about-bottom"><span>CHRONOTHERAPY AI · RESEARCH PROTOTYPE</span><span>Hypertension Chronotherapy Research</span></div>
+    </section>
+  </main>
+  <footer><span>© 2026 ChronoTherapy AI</span><span>Prototipe penelitian · Bukan perangkat diagnosis</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
